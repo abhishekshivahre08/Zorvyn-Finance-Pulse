@@ -4,6 +4,29 @@ A production-ready backend for a Finance Dashboard system built with **Node.js**
 
 ---
 
+## 🌐 Live Access & Demo
+
+> ⚠️ **Important Note for Reviewers:** > The backend is hosted on a free instance of **Render**. If the initial request takes **30-60 seconds** to load, please be patient—the server is "spinning up" from sleep mode. Once awake, it will be fast!
+
+| Type | Link | Description |
+| :--- | :--- | :--- |
+| **🚀 Live Demo (Full UI)** | [👉 Click Here to Open UI](https://your-frontend-vercel-link.vercel.app) | Full Frontend + Backend Integration |
+| **📡 API Base (JSON Data)** | [🔗 View Backend API](https://your-backend-render-link.onrender.com/api/dashboard/summary) | Direct JSON response for testing endpoints |
+| **📑 API Documentation** | [📖 View Specs](#-api-reference) | Detailed endpoint documentation below |
+
+### 🔑 Quick Test Credentials
+You can use these pre-seeded accounts to explore the dashboard immediately:
+
+* **Role: Admin** (Full Access)  
+    * **Email:** `admin@finance.com`  
+    * **Password:** `admin123`
+* **Role: Viewer** (Read-only)  
+    * **Email:** `viewer@finance.com`  
+    * **Password:** `viewer123`
+
+---
+
+
 ## 🚀 Tech Stack
 
 | Layer | Technology |
