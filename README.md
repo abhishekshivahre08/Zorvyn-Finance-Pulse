@@ -11,7 +11,7 @@ A production-ready backend for a Finance Dashboard system built with **Node.js**
 | Type | Link | Description |
 | :--- | :--- | :--- |
 | **🚀 Live Demo (Full UI)** | [👉 Click Here to Open UI](https://your-frontend-vercel-link.vercel.app) | Full Frontend + Backend Integration |
-| **📡 API Base (JSON Data)** | [🔗 View Backend API](https://your-backend-render-link.onrender.com/api/dashboard/summary) | Direct JSON response for testing endpoints |
+| **📡 API Base (JSON Data)** | [🔗 View Backend API](https://finances-dashboard.onrender.com) | Direct JSON response for testing endpoints |
 | **📑 API Documentation** | [📖 View Specs](#-api-reference) | Detailed endpoint documentation below |
 
 ### 🔑 Quick Test Credentials
