@@ -50,7 +50,7 @@ finance-dashboard/
 │   ├── seeds/
 │   │   └── seeder.js            # Sample data seeder
 │   └── server.js                # App entry point
-├── .env.example
+├── .env
 ├── .gitignore
 └── package.json
 ```
@@ -73,7 +73,7 @@ cd finance-dashboard
 npm install
 
 # 3. Create environment file
-cp .env.example .env
+cd .env
 # Edit .env and set your MONGODB_URI and JWT_SECRET
 
 # 4. Seed sample data (optional but recommended)
@@ -87,16 +87,18 @@ npm run dev
 #    API docs: http://localhost:5000/api
 #    Health: http://localhost:5000/health
 ```
+## Environment Variables
 
-### Environment Variables
+To run this project, you will need to add the following environment variables to your .env file:
 
-```env
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/finance_dashboard
-JWT_SECRET=your_super_secret_key_here
-JWT_EXPIRES_IN=7d
-NODE_ENV=development
 ```
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+JWT_EXPIRES_IN=7d
+```
+
+
 
 ---
 
