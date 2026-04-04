@@ -7,7 +7,8 @@ const User = require("../models/User");
 const Transaction = require("../models/Transaction");
 
 const connectDB = async() => {
-    await mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/finance_dashboard");
+    // await mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/finance_dashboard");
+    await mongoose.connect(process.env.MONGODB_URI);
     console.log("✅ MongoDB Connected for seeding");
 };
 

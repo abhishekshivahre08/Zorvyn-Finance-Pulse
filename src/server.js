@@ -20,10 +20,10 @@ const dashboardRoutes = require("./routes/dashboardRoutes");
 
 const app = express();
 
-// ─── Connect Database ────────────────────────────────────────────
+//  Connecting  Database
 connectDB();
 
-// ─── Security Middleware ─────────────────────────────────────────
+// Security Middleware for Security
 app.use(helmet());
 app.use(cors({
     origin: process.env.CLIENT_URL || "*",
@@ -31,23 +31,23 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
-// ─── Request Logging ─────────────────────────────────────────────
+//  Request Logging 
 if (process.env.NODE_ENV === "development") {
     app.use(morgan("dev"));
 } else {
     app.use(morgan("combined"));
 }
 
-// ─── Body Parsers ────────────────────────────────────────────────
+// Body Parsersing
 app.use(express.json({ limit: "10kb" })); // Limit body size to 10kb
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 
-// ─── Rate Limiting ───────────────────────────────────────────────
+// Rate Limiting
 app.use("/api", apiLimiter);
 app.use("/api/auth/login", authLimiter);
 app.use("/api/auth/register", authLimiter);
 
-// ─── Health Check ────────────────────────────────────────────────
+// Health Check
 app.get("/health", (req, res) => {
     res.status(200).json({
         success: true,
@@ -58,7 +58,7 @@ app.get("/health", (req, res) => {
     });
 });
 
-// ─── API Info ────────────────────────────────────────────────────
+// API Info
 app.get("/api", (req, res) => {
     res.status(200).json({
         success: true,
@@ -102,13 +102,13 @@ app.get("/api", (req, res) => {
     });
 });
 
-// ─── API Routes ──────────────────────────────────────────────────
+// API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/transactions", transactionRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 
-// ─── Serve Frontend (if built) ───────────────────────────────────
+//Serve Frontend (if built) 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../frontend/build")));
     app.get("*", (req, res) => {
@@ -118,28 +118,24 @@ if (process.env.NODE_ENV === "production") {
     });
 }
 
-// ─── 404 Handler ─────────────────────────────────────────────────
+//  404 Handler this for user enters wrong URL
 app.all("*", (req, res, next) => {
     next(new AppError(`Route '${req.originalUrl}' not found on this server.`, 404));
 });
 
-// ─── Global Error Handler ─────────────────────────────────────────
+// Global Error Handler
 app.use(globalErrorHandler);
 
-// ─── Start Server ─────────────────────────────────────────────────
+//  Start Server 
 const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => {
-    console.log("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-    console.log("🚀  Finance Dashboard API Server Started");
-    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-    console.log(`📡  Server     : http://localhost:${PORT}`);
-    console.log(`📋  API Docs   : http://localhost:${PORT}/api`);
-    console.log(`❤️   Health     : http://localhost:${PORT}/health`);
-    console.log(`🌍  Environment: ${process.env.NODE_ENV || "development"}`);
-    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
+    console.log(" Finance Dashboard API Server Started ✅");
+    console.log(` Server is started on : http://localhost:${PORT}`);
+    console.log(`API Docs   : http://localhost:${PORT}/api`);
+    console.log(`Health     : http://localhost:${PORT}/health`);
 });
 
-// ─── Graceful Shutdown ────────────────────────────────────────────
+// Graceful Shutdown 
 process.on("SIGTERM", () => {
     console.log("⚠️  SIGTERM received. Shutting down gracefully...");
     server.close(() => {
