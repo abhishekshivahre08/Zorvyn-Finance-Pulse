@@ -4,6 +4,29 @@ A production-ready backend for a Finance Dashboard system built with **Node.js**
 
 ---
 
+## 🌐 Live Access & Demo
+
+> ⚠️ **Important Note for Reviewers:** > The backend is hosted on a free instance of **Render**. If the initial request takes **30-60 seconds** to load, please be patient—the server is "spinning up" from sleep mode. Once awake, it will be fast!
+
+| Type | Link | Description |
+| :--- | :--- | :--- |
+| **🚀 Live Demo (Full UI)** | [👉 Click Here to Open UI](https://your-frontend-vercel-link.vercel.app) | Full Frontend + Backend Integration |
+| **📡 API Base (JSON Data)** | [🔗 View Backend API](https://finances-dashboard.onrender.com) | Direct JSON response for testing endpoints |
+| **📑 API Documentation** | [📖 View Specs](#-api-reference) | Detailed endpoint documentation below |
+
+### 🔑 Quick Test Credentials
+You can use these pre-seeded accounts to explore the dashboard immediately:
+
+* **Role: Admin** (Full Access)  
+    * **Email:** `admin@finance.com`  
+    * **Password:** `admin123`
+* **Role: Viewer** (Read-only)  
+    * **Email:** `viewer@finance.com`  
+    * **Password:** `viewer123`
+
+---
+
+
 ## 🚀 Tech Stack
 
 | Layer | Technology |
@@ -50,7 +73,7 @@ finance-dashboard/
 │   ├── seeds/
 │   │   └── seeder.js            # Sample data seeder
 │   └── server.js                # App entry point
-├── .env.example
+├── .env
 ├── .gitignore
 └── package.json
 ```
@@ -73,7 +96,7 @@ cd finance-dashboard
 npm install
 
 # 3. Create environment file
-cp .env.example .env
+cd .env
 # Edit .env and set your MONGODB_URI and JWT_SECRET
 
 # 4. Seed sample data (optional but recommended)
@@ -87,16 +110,18 @@ npm run dev
 #    API docs: http://localhost:5000/api
 #    Health: http://localhost:5000/health
 ```
+## Environment Variables
 
-### Environment Variables
+To run this project, you will need to add the following environment variables to your .env file:
 
-```env
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/finance_dashboard
-JWT_SECRET=your_super_secret_key_here
-JWT_EXPIRES_IN=7d
-NODE_ENV=development
 ```
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+JWT_EXPIRES_IN=7d
+```
+
+
 
 ---
 
